@@ -50,7 +50,7 @@
      dest: /etc/systemd/system/backend.service
 
   - name: ansible to install PyMySQL
-    ansible.bbuiltin.pip:
+    ansible.builtin.pip:
       name:
       - PyMySQL
       executable: pip3.9
