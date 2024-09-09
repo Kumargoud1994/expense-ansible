@@ -53,6 +53,7 @@
     ansible.builtin.pip:
       name:
       - PyMySQL
+      - crytography
       executable: pip3.9
 
   - name: import mysql data
@@ -62,8 +63,13 @@
       login_host: "{{ login_host }}"
       target: /app/schema/backend.sql
       name: all
-      state: dump
+      state: import
 
+  - name: daemon reload
+    ansible.builtin.system_service:
+      daemon_reload: true
+      state: restarted
+      name: backend
 
 
 
